@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="appModule">
+	<head>
+		<title>OpenHours Service Demo</title>
+		<script src="lib/angular.min.js"></script>
+	</head>
+	<body ng-controller="appController as ctrl">
+
+		<div ng-if="ctrl.isOpen">Open</div>
+		<div ng-if="!ctrl.isOpen">Closed</div>
+
+		<script>
+			var app = angular.module('appModule', []);
+			app.controller('appController', function(openHoursService) {
+				var self = this;
+			    self.isOpen = openHoursService.isOpen;
+			});
+		</script>
+		<script src="angular.openhours.service.js"></script>
+
+	</body>
+</html>
